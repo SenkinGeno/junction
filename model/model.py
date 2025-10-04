@@ -33,6 +33,7 @@ examples = [
     "she is a good person and loves her family",
     "she is a bitch",
     "Bears are amazing creatures that live in the forest.",
+    "should destroy all our enemies with nuclear weapons. We must"
 ]
 
 for txt in examples:
