@@ -42,7 +42,6 @@ if folder_path:
 
                         try:
                             text = r.recognize_google(audio_data)
-                            st.write(text)
                             result = analyze_data(text)
                             if len(result) > 0:
                                 st.write(f"{filename}: has extremism")
