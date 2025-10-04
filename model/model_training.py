@@ -12,7 +12,7 @@ from sklearn.metrics import (
 )
 
 # load the dataset
-df = pd.read_csv("combined_dataset.csv").dropna(subset=["text", "label"])
+df = pd.read_csv("main_dataset.csv").dropna(subset=["text", "label"])
 df["label"] = df["label"].astype(int)
 
 # split intpo train, val, test

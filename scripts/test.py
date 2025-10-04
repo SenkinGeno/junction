@@ -80,7 +80,7 @@ ds3 = ds3.remove_columns([c for c in ds2.column_names if c not in ["text","label
 
 
 combined = concatenate_datasets([ds1, ds2, ds3, ds4, ds5, ds6, ds7, ds8, extremists, non_extremists])
-combined.to_csv("combined_dataset.csv", index=False)
+combined.to_csv("main_dataset.csv", index=False)
 
 # import speech_recognition as sr
 

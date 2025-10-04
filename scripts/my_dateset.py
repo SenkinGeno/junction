@@ -179,8 +179,8 @@ print(f"Generated {len(new_ds)} lines.")
 print(new_ds.shuffle(seed=42)[:5])  
 new_ds.to_csv("generated_non_extremist.csv", index=False)
 
-# ds = load_dataset("csv", data_files="combined_dataset.csv")['train']
+# ds = load_dataset("csv", data_files="main_dataset.csv")['train']
 # combined = concatenate_datasets([ds, new_ds])
-# combined.to_csv("combined_dataset.csv", index=False)
+# combined.to_csv("main_dataset.csv", index=False)
 
 # hard_negatives_ds = Dataset.from_list(hard_negatives)
