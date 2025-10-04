@@ -15,6 +15,11 @@ def classify_text(text):
 
 def find_extreme_parts(data_str, window_size=10, overlap=5):
     extreme_parts = []
+    if len(data_str.split()) < window_size:
+        if classify_text(data_str) == 1:
+            print("appending")
+            extreme_parts.append(data_str)
+        return extreme_parts
     counter = window_size
     while counter < len(data_str.split()):
         window_str = " ".join(data_str.split()[counter-window_size:counter])
