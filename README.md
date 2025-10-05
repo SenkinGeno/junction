@@ -13,3 +13,7 @@
 - **Hate speech** towards people or other living beings
 - Racism, sexism, homophobia or other **discriminatory behaviour** and **intolerancy** towards others
 - Other **extremist viewpoints**, e.g. supporting or defending terrorism
+
+
+It’s possible to configure the code to process audio files in different ways - either sentence by sentence or using sliding windows of words.
+You can also adjust the window size in the code to fine-tune how precisely the system detects offensive or extremist content.
