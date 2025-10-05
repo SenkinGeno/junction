@@ -4,6 +4,7 @@ import os
 import io
 
 from analyze import *
+from transcript_with_timestamps import *
 
 
 st.set_page_config(
@@ -41,14 +42,14 @@ if st.button("▶️ Analyze All Audio Files"):
                 for file in os.listdir(directory):
                     filename = os.fsdecode(file)
                     if filename.endswith(".wav"):
-                        with sr.AudioFile(directory.decode() + "/" + filename) as source:
-                            audio_data = r.record(source)
+                        
 
                         try:
-                            text = r.recognize_google(audio_data)
-                            result = analyze_data(text)
+                            data = get_transcript_with_timestamps(os.path.join(folder_path, filename))
+                            print(data)
+                            result = analyze_data(data)
                             if len(result) > 0:
-                                st.write(f"{filename}: has extremism")
+                                st.write(f"{filename}: has extremism at " + "".join([str(round(ts, 2)) + "s, " for ts in result]))
                             else:
                                 st.write(f"{filename}: no extremism detected")
                         except sr.UnknownValueError:
@@ -81,17 +82,14 @@ if st.button("▶️ Analyze"):
         for file in uploaded_files:
 
             try:
-                audio_buffer = io.BytesIO(file.read())
-                with sr.AudioFile(audio_buffer) as source:
-                    audio_data = r.record(source)
-
-                text = r.recognize_google(audio_data)
-                result = analyze_data(text)
+                data = get_transcript_with_timestamps(io.BytesIO(file.read()))
+                print(data)
+                result = analyze_data(data)
 
 
 
                 if len(result) > 0:
-                    st.write(f"{file.name}: has extremism")
+                    st.write(f"{file.name}: has extremism at " + "".join([str(round(ts, 2)) + "s" for ts in result]))
                 else:
                     st.write(f"{file.name}: no extremism detected")
             except sr.UnknownValueError:
