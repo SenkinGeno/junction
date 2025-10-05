@@ -1,4 +1,4 @@
-# junction
+# Junction hackathon: AI for detecting extremist speech
 ## How to use
 - Download the respository
 - Open terminal on your IDE
